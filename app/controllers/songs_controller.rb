@@ -50,10 +50,12 @@ class SongsController < ApplicationController
         redirect_to artists_path, alert: "Artist not found"
       else
         @song = artist.songs.find_by(id: params[:id])
+        @form_type = :edit_through_artist
         redirect_to artist_songs_path(artist), alert: "Song not found" if @song.nil?
       end
     else
       @song = Song.find(params[:id])
+      @form_type = :direct_edit
     end
   end
 
