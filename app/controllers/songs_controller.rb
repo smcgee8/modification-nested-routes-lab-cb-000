@@ -30,6 +30,7 @@ class SongsController < ApplicationController
     else
       @song = Song.new(artist_id: params[:artist_id])
     end
+    @form_type = :new
   end
 
   def create
